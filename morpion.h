@@ -1,6 +1,6 @@
 #pragma once
 /**
-* @file morpion.c
+* @file morpion.h
 * @author a.brouzes
 */
 

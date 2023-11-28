@@ -23,3 +23,4 @@ typedef struct {
 
 void gui_init(SDL2* sdl2);
 void gui_destroy(SDL2* sdl2);
+void gui_displayBMP(SDL2* sdl2, const char file[]);

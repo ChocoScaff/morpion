@@ -4,6 +4,9 @@
 */
 #include "gui.h"
 
+/**
+* @param SDL2
+*/
 void gui_init(SDL2 *sdl2) {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         printf("SDL_Init Error: %s\n", SDL_GetError());
@@ -26,7 +29,30 @@ void gui_init(SDL2 *sdl2) {
     }
 }
 
+/**
+* @param SDL2
+*/
 void gui_destroy(SDL2* sdl2) {
     SDL_DestroyRenderer(sdl2->renderer);
     SDL_DestroyWindow(sdl2->window);
+}
+
+
+void gui_displayBMP(SDL2* sdl2, const char file[]) {
+    SDL_Surface* surface = SDL_LoadBMP(file);
+    if (NULL == surface)
+    {
+        printf("Erreur SDL_LoadBMP : %s", SDL_GetError());
+    }
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(sdl2->renderer, surface);
+    if (NULL == texture)
+    {
+       printf("Erreur SDL_CreateTextureFromSurface : %s", SDL_GetError());
+    }
+    SDL_Rect playerScoreRect = { 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT };
+    SDL_RenderCopy(sdl2->renderer, texture, NULL, &playerScoreRect);
+    SDL_RenderPresent(sdl2->renderer);
+
+    SDL_FreeSurface(surface); /* On libère la surface, on n’en a plus besoin */
+
 }
