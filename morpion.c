@@ -113,11 +113,12 @@ bool morpion_verifierFinPartie(Morpion* morpion) {
         }
     }
     if (casesRemplies == 9) {
+        morpion->joueur = 0;
         return true; // Match nul
     }
 
-    if (morpion->joueur == 0) {
-        morpion->joueur = 1;
+    if (morpion->joueur == 1) {
+        morpion->joueur = 2;
     }
     else {
         morpion->joueur = 1;
@@ -141,3 +142,5 @@ void morpion_jouerCoup(Morpion* morpion, int ligne, int colonne) {
         morpion->tour++;
     }
 }
+
+

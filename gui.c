@@ -50,7 +50,7 @@ void gui_displayBMP(SDL2* sdl2, const char file[]) {
        printf("Erreur SDL_CreateTextureFromSurface : %s", SDL_GetError());
     }
     SDL_Rect playerScoreRect = { 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT };
-    SDL_RenderCopy(sdl2->renderer, texture, NULL, &playerScoreRect);
+    SDL_RenderCopy(sdl2->renderer, texture, NULL, NULL);
     SDL_RenderPresent(sdl2->renderer);
 
     SDL_FreeSurface(surface); /* On libère la surface, on n’en a plus besoin */

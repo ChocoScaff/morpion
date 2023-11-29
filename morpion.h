@@ -17,6 +17,7 @@ typedef struct {
     char grille[3][3]; // Grille 3x3
     int tour;
     char joueur;
+    char nbrJoueur;
 
     SDL2 sdl2;
 }Morpion;
