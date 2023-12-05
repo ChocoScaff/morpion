@@ -11,9 +11,7 @@
 #include <stdlib.h>
 #include "morpion.h"
 #include "gui.h"
-#if defined _TTF
 #include "ttf.h"
-#endif
 #include "menu.h"
 
 /**
@@ -21,9 +19,7 @@
 */
 typedef struct {
     SDL2 sdl2;
-#if defined _TTF
     TTF ttf;
-#endif
 }SCORE;
 
 
@@ -110,9 +106,7 @@ int main() {
     gui_destroy(&morpion.sdl2);
 
     SCORE score;
-#if defined _TTF
     score.ttf.font = NULL;
-#endif
     score.sdl2.renderer = NULL;
     score.sdl2.window = NULL;
 
@@ -120,7 +114,6 @@ int main() {
 
     gui_displayBMP(&score.sdl2, "Big_Rigs_Over_the_Road_Racing_trophy.bmp");
 
-#if defined _TTF
     ttf_init(&score.ttf);
     if (morpion.joueur == 0) {
         sprintf(score.ttf.textes, "egaliter\n");
@@ -129,15 +122,12 @@ int main() {
         sprintf(score.ttf.textes, "joueur %d a gagne \n", morpion.joueur);
     }
     ttf_renderTexts(&score.ttf, &score.sdl2);
-#endif
 
     SDL_Delay(50000);
 
     gui_destroy(&score.sdl2);
 
-#if defined _TTF
     ttf_destroy(&score.ttf);
-#endif
 
     SDL_Quit();
 

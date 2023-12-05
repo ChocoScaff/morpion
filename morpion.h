@@ -4,7 +4,6 @@
 * @author a.brouzes
 */
 
-#include <SDL.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include "gui.h"

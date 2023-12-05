@@ -4,7 +4,12 @@
 * @author a.brouzes
 */
 
+#if defined(__unix__) 
+#include <SDL2/SDL.h>
+#endif
+#if defined(WIN32)
 #include <SDL.h>
+#endif
 
 
 #define WINDOW_WIDTH 480

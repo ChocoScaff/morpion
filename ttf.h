@@ -4,9 +4,12 @@
 * @author a.brouzes
 */
 
-#if defined _TTF
-
+#if defined (__unix__)
+#include <SDL2/SDL_ttf.h>
+#endif
+#if defined (WIN32)
 #include <SDL_ttf.h>
+#endif
 #include "gui.h"
 
 /**
@@ -21,4 +24,3 @@ typedef struct {
 char ttf_init(TTF* ttf);
 void ttf_destroy(TTF* ttf);
 
-#endif

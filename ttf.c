@@ -3,7 +3,6 @@
 * @author a.brouzes
 */
 
-#if defined _TTF
 
 #include"ttf.h"
 
@@ -75,4 +74,3 @@ void ttf_renderTexts(TTF* ttf, SDL2 *sdl2) {
 
 }
 
-#endif
